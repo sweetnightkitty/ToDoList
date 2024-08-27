@@ -6,16 +6,21 @@ import { taskManager } from "./tasks";
 
 const manage = taskManager();
 
-//Main Buttons
+//CONTENT CONTAINERS
+const projectsContainer = document.querySelector(".container-left");
+const tasksContainer = document.querySelector(".container-right");
+
+//MAIN BUTTONS
 const addProjectBtn = document.querySelector(".btn-add-project");
 const addTaskBtn = document.querySelector(".btn-add-task");
 
-//Modal Buttons
+//MODAL BUTTONS
 const projectSubmitBtn = document.querySelector(".btn-submit-modal-project");
 const taskSubmitBtn = document.querySelector(".btn-submit-modal-task");
 const closeModalBtns = document.querySelectorAll(".btn-close");
 
 
+//BUTTON EVENT LISTENERS
 addProjectBtn.addEventListener("click", () => {
     //selects project modal
     const modal = document.querySelector(".modal-project");
@@ -44,7 +49,6 @@ taskSubmitBtn.addEventListener("click", (e) => {
     manage.addTaskToProject(newTask, currentProject);
     closeModal();
     resetForm();
-    console.log(manage.getProjects());
 
 });
 
@@ -58,33 +62,3 @@ closeModalBtns.forEach((btn) => {
 
 
 
-
-
-
-
-
-
-
-//Examples:
-
-const projectsContainer = document.querySelector(".container-left");
-const tasksContainer = document.querySelector(".container-right");
-
-//Example projects
-// const projects = [
-//     {
-//         name: "default",
-//         tasks: [],
-//     },
-
-//     {
-//         name: "languages",
-//         tasks: [],
-//     },
-// ];
-
-// projects[0].tasks.push("make this work");
-// projects[1].tasks.push("review japanese");
-
-// console.log(projects[0]);
-// console.log(projects[1]);
