@@ -3,12 +3,10 @@ import { openModal } from "./dom";
 import { closeModal } from "./dom";
 import { resetForm } from "./dom";
 import { taskManager } from "./tasks";
+import { displayProjects } from "./dom";
 
 const manage = taskManager();
 
-//CONTENT CONTAINERS
-const projectsContainer = document.querySelector(".container-left");
-const tasksContainer = document.querySelector(".container-right");
 
 //MAIN BUTTONS
 const addProjectBtn = document.querySelector(".btn-add-project");
@@ -18,6 +16,9 @@ const addTaskBtn = document.querySelector(".btn-add-task");
 const projectSubmitBtn = document.querySelector(".btn-submit-modal-project");
 const taskSubmitBtn = document.querySelector(".btn-submit-modal-task");
 const closeModalBtns = document.querySelectorAll(".btn-close");
+
+//LOADS PROJECTS
+window.addEventListener("load", displayProjects(manage.getProjects));
 
 
 //BUTTON EVENT LISTENERS
@@ -36,7 +37,9 @@ addTaskBtn.addEventListener("click", () => {
 projectSubmitBtn.addEventListener("click", (e) => {
     e.preventDefault();
     manage.createProject();
+    const projects = manage.getProjects;
     //update left column
+    displayProjects(projects);
     closeModal();
     resetForm();
     
