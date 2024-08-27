@@ -1,12 +1,15 @@
-export function taskManager() {
+export function getProjects() {
     const projects = [
         {
             name: "Main",
             tasks: [],
         },
     ];
+    return projects;
+}
 
-    const getProjects = () => projects;
+export function taskManager() {
+    const projects = getProjects();
 
     let currentProject = projects[0];
 
@@ -59,11 +62,11 @@ export function taskManager() {
     };
 
     return {
-        getProjects,
+        getProjects: projects,
+        switchProjects,
         createProject,
         createTask,
         getCurrentProject,
-        switchProjects,
         addTaskToProject,
-    }
+    };
 };
