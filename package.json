@@ -4,7 +4,9 @@
   "description": "## Check out the Assignment guidelines for this project: https://www.theodinproject.com/lessons/node-path-javascript-todo-list",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npx webpack",
+    "view": "npx webpack serve"
   },
   "keywords": [],
   "author": "",
