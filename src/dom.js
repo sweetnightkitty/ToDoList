@@ -20,10 +20,20 @@ export function resetForm() {
     })
 }
 
-export function displayProjects(array) {
-    for(let i = 0; i < array.length; i++) {
+export function displayProjects(projectsArray) {
+    for(let i = 0; i < projectsArray.length; i++) {
         const project = document.createElement("div");
-        project.textContent = array[i].name;
+        project.textContent = projectsArray[i].name;
         projectsContainer.appendChild(project);
+    };
+};
+
+//Currently logs task.title but we can make this more detailed for UI
+export function displayTasks(currentProject) {
+    const array = currentProject.tasks;
+    for(let i = 0; i < array.length; i++) {
+        const task = document.createElement("div");
+        task.textContent = array[i].title;
+        tasksContainer.appendChild(task);
     };
 };
