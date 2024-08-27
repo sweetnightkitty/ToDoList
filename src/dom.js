@@ -8,3 +8,10 @@ export function closeModal() {
         modal.style.display = "none";
     });
 };
+
+export function resetForm() {
+    const forms = document.querySelectorAll("form");
+    forms.forEach((form) => {
+        form.reset();
+    })
+}
