@@ -1,10 +1,18 @@
 import "./styles.css";
 import { openModal } from "./dom";
 import { closeModal } from "./dom";
+import { resetForm } from "./dom";
+import { createProject } from "./tasks";
 
+//Main Buttons
 const addProjectBtn = document.querySelector(".btn-add-project");
 const addTaskBtn = document.querySelector(".btn-add-task");
+
+//Modal Buttons
+const projectModalBtn = document.querySelector(".btn-submit-modal-project");
+const taskModalBtn = document.querySelector(".btn-submit-modal-task");
 const closeModalBtns = document.querySelectorAll(".btn-close");
+
 
 addProjectBtn.addEventListener("click", () => {
     //selects project modal
@@ -17,6 +25,21 @@ addTaskBtn.addEventListener("click", () => {
     const modal = document.querySelector(".modal-task");
     openModal(modal);
 });
+
+projectModalBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    createProject();
+    //update left column?
+    closeModal();
+    resetForm();
+    
+});
+
+taskModalBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    //stuff
+});
+
 
 closeModalBtns.forEach((btn) => {
     btn.addEventListener("click", () => {
