@@ -32,5 +32,3 @@ export function displayProjects(projectsArray) {
 function clearProjectsContainer() {
     projectsContainer.innerHTML = "";
 };
-
-//deleteBooks

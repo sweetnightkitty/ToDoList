@@ -13,6 +13,13 @@ export function displayTasks(currentProject) {
         tasksContainer.appendChild(card);
 
     };
+
+    const taskDeleteBtns = document.querySelectorAll(".btn-task-delete");
+    taskDeleteBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+            //Logic to find the current task and remove from projects array
+        })
+    })
 };
 
 
@@ -32,7 +39,7 @@ function createCard(task) {
     const date = createDiv(task.date);
     const priority = createDiv(task.priority);
     const deleteBtn = document.createElement("button");
-    deleteBtn.classList.add("btn-taskName"); //need a unique class identifier
+    deleteBtn.classList.add("btn-task-delete"); //need a unique class identifier
     deleteBtn.textContent = "Delete";
 
     card.appendChild(radio);
