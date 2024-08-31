@@ -1,5 +1,5 @@
 //CONTENT CONTAINERS
-const tasksContainer = document.querySelector(".container-right");
+// const tasksContainer = document.querySelector(".container-right");
 const projectsContainer = document.querySelector(".container-left");
 
 export function openModal(modal) {

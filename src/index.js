@@ -1,7 +1,7 @@
 import "./styles.css";
-import { openModal } from "./dom";
-import { closeModal } from "./dom";
-import { resetForm } from "./dom";
+import { openModal } from "./modal-dom";
+import { closeModal } from "./modal-dom";
+import { resetForm } from "./modal-dom";
 import { taskManager } from "./tasks";
 import { displayProjects } from "./projects-dom";
 import { displayTasks } from "./tasks-dom";
