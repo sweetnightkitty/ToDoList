@@ -2,9 +2,10 @@ import "./styles.css";
 import { openModal } from "./modal-dom";
 import { closeModal } from "./modal-dom";
 import { resetForm } from "./modal-dom";
-import { taskManager } from "./tasks";
+import { taskManager } from "./task-manager";
 import { displayProjects } from "./projects-dom";
-import { displayTasks } from "./tasks-dom";
+import { updateProjects } from "./projects";
+
 
 const manage = taskManager();
 
@@ -25,34 +26,31 @@ window.addEventListener("load", () => {
 });
 
 
-//BUTTON EVENT LISTENERS
+//Add new project
 addProjectBtn.addEventListener("click", () => {
     //selects project modal
     const modal = document.querySelector(".modal-project");
     openModal(modal);
 });
 
+//Add new to do item (task)
 addTaskBtn.addEventListener("click", () => {
     //selects task modal
     const modal = document.querySelector(".modal-task");
     openModal(modal);
 });
 
+
 projectSubmitBtn.addEventListener("click", (e) => {
     e.preventDefault();
-    manage.createProject();
-    const projects = manage.getProjects;
-    displayProjects(projects); // Displays updated projects to the left column on UI
+    updateProjects(manage);
     closeModal();
     resetForm();
 });
 
 taskSubmitBtn.addEventListener("click", (e) => {
     e.preventDefault();
-    const newTask = manage.createTask();
-    const currentProject = manage.getCurrentProject();
-    manage.addTaskToProject(newTask, currentProject);
-    displayTasks(currentProject);
+
     closeModal();
     resetForm();
 

@@ -9,3 +9,9 @@ export function displayTasks(currentProject) {
         tasksContainer.appendChild(task);
     };
 };
+
+
+const newTask = manage.createTask();
+const currentProject = manage.getCurrentProject();
+manage.addTaskToProject(newTask, currentProject);
+displayTasks(currentProject);
