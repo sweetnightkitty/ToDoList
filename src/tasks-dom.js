@@ -17,7 +17,17 @@ export function displayTasks(currentProject) {
     const taskDeleteBtns = document.querySelectorAll(".btn-task-delete");
     taskDeleteBtns.forEach((btn) => {
         btn.addEventListener("click", () => {
+            console.log("delete!");
             //Logic to find the current task and remove from projects array
+        })
+    })
+
+    const checkboxes = document.querySelectorAll(".checkbox");
+    checkboxes.forEach((box) => {
+        box.addEventListener("click", () => {
+            console.log("check!");
+            //Logic to find the current task and remove from projects array
+            //Logic to push to a completed array
         })
     })
 };
@@ -57,6 +67,7 @@ function createRadio(id) {
     const radio = document.createElement("input");
     radio.type = "radio";
     radio.name = "delete";
+    radio.classList.add("checkbox");
     radio.id = id;
     radio.checked = false;
     return radio;
