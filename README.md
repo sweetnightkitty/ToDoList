@@ -4,8 +4,10 @@
 https://www.theodinproject.com/lessons/node-path-javascript-todo-list
 
 ## Known problems or tasks to complete
-* Currently task titles are added as div content and displayed on UI, but need to be converted into a card with checkbox and delete button / right click delete.
+* Task card - checkbox radio does nothing
+* Task card - delete button does nothing; should remove the task
+    * Both should remove the task from projects array
+    * Both should then update with displayCurrentTasks
 
-* projects are added to the UI as buttons
-    * Button class will trigger switch project function
-    * re displayTasks to repopulate right column content
+
+* Optional: radio button check should push the task to a seperate const array - completed tasks -> With an option to view completed tasks, and unchecking the radio should return it to where it came from
