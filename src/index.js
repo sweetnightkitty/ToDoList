@@ -5,6 +5,7 @@ import { resetForm } from "./modal-dom";
 import { taskManager } from "./task-manager";
 import { displayProjects } from "./projects-dom";
 import { updateProjects } from "./projects";
+import { updateTasks } from "./tasks";
 
 
 const manage = taskManager();
@@ -50,7 +51,7 @@ projectSubmitBtn.addEventListener("click", (e) => {
 
 taskSubmitBtn.addEventListener("click", (e) => {
     e.preventDefault();
-
+    updateTasks(manage);
     closeModal();
     resetForm();
 
