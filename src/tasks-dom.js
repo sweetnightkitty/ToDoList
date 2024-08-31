@@ -1,3 +1,4 @@
+import { manage } from "./index";
 const tasksContainer = document.querySelector(".container-right");
 
 //Currently logs task.title but we can make this more detailed for UI
@@ -7,18 +8,10 @@ export function displayTasks(currentProject) {
     const array = currentProject.tasks;
     for(let i = 0; i < array.length; i++) {
         const task = array[i];
-
-        // const temp = document.createElement("div");
-        // temp.textContent = array[i].title;
-        // tasksContainer.appendChild(temp);
-
+        //Uses task info to create a card and append to UI
         const card = createCard(task);
         tasksContainer.appendChild(card);
 
-        //create a card = div
-        //append info to card in seperate divs
-        //append a delet button
-        //append card to tasksContainer
     };
 };
 
@@ -32,6 +25,8 @@ function createCard(task) {
     const card = document.createElement("div");
     card.classList.add("card");
 
+    const radio = createRadio("id"); //id needs to be unique
+
     const title = createDiv(task.title);
     const description = createDiv(task.description);
     const date = createDiv(task.date);
@@ -40,6 +35,7 @@ function createCard(task) {
     deleteBtn.classList.add("btn-taskName"); //need a unique class identifier
     deleteBtn.textContent = "Delete";
 
+    card.appendChild(radio);
     card.appendChild(title);
     card.appendChild(description);
     card.appendChild(date);
@@ -49,15 +45,24 @@ function createCard(task) {
     return card;
 };
 
-// const newTask = {
-//     title: title,
-//     description: description,
-//     date: date,
-//     priority: priority,
-// }
+
+function createRadio(id) {
+    const radio = document.createElement("input");
+    radio.type = "radio";
+    radio.name = "delete";
+    radio.id = id;
+    radio.checked = false;
+    return radio;
+};
 
 function createDiv(textContent) {
     const div = document.createElement("div");
     div.textContent = textContent;
     return div;
 }
+
+export function displayCurrentTasks(projectName) {
+    manage.switchProjects(projectName);
+    const currentProject = manage.getCurrentProject();
+    displayTasks(currentProject);
+};

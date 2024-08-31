@@ -9,7 +9,7 @@ import { updateProjects } from "./projects";
 import { updateTasks } from "./tasks";
 
 
-const manage = taskManager();
+export const manage = taskManager();
 
 
 //MAIN BUTTONS
@@ -65,6 +65,7 @@ closeModalBtns.forEach((btn) => {
         resetForm();
     });
 });
+
 
 
 
