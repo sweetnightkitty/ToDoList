@@ -3,8 +3,8 @@ import { openModal } from "./dom";
 import { closeModal } from "./dom";
 import { resetForm } from "./dom";
 import { taskManager } from "./tasks";
-import { displayProjects } from "./dom";
-import { displayTasks } from "./dom";
+import { displayProjects } from "./projects-dom";
+import { displayTasks } from "./tasks-dom";
 
 const manage = taskManager();
 
@@ -21,6 +21,7 @@ const closeModalBtns = document.querySelectorAll(".btn-close");
 //LOADS PROJECTS
 window.addEventListener("load", () => {
     displayProjects(manage.getProjects);
+    //display tasks on page
 });
 
 
