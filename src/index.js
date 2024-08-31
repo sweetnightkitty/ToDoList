@@ -4,6 +4,7 @@ import { closeModal } from "./modal-dom";
 import { resetForm } from "./modal-dom";
 import { taskManager } from "./task-manager";
 import { displayProjects } from "./projects-dom";
+import { displayTasks } from "./tasks-dom";
 import { updateProjects } from "./projects";
 import { updateTasks } from "./tasks";
 
@@ -23,7 +24,7 @@ const closeModalBtns = document.querySelectorAll(".btn-close");
 //LOADS PROJECTS
 window.addEventListener("load", () => {
     displayProjects(manage.getProjects);
-    //display tasks on page
+    displayTasks(manage.getCurrentProject());
 });
 
 

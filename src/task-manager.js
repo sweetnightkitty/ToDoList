@@ -2,7 +2,11 @@ export function getProjects() {
     const projects = [
         {
             name: "Main",
-            tasks: [],
+            tasks: [
+                {
+                    title: "Finish To Do Project",
+                }
+            ],
         },
     ];
     return projects;
