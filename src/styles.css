@@ -1,154 +1,146 @@
 :root {
-    --headingOne: 32px;
-    --headingTwo: 20px;
-    --standardFontSize: 16px;
-    --columnLeftColor: rgb(207, 194, 194);
+  --headingOne: 32px;
+  --headingTwo: 20px;
+  --standardFontSize: 16px;
+  --columnLeftColor: rgb(207, 194, 194);
 }
 
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    font-size: var(--standardFontSize); /* sets default font */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-size: var(--standardFontSize); /* sets default font */
 }
 
 h1 {
-    font-size: var(--headingOne);
+  font-size: var(--headingOne);
 }
 
 h2 {
-    font-size: var(--headingTwo);
+  font-size: var(--headingTwo);
 }
 
 .content {
-    flex: 1;
-    display: flex;
-
+  flex: 1;
+  display: flex;
 }
 .col-left {
-    flex: 1;
-    background-color: var(--columnLeftColor);
-    min-height: 100%;
+  flex: 1;
+  background-color: var(--columnLeftColor);
+  min-height: 100%;
 }
 
-.col-right  {
-    flex: 3;
-    min-height: 100%;
+.col-right {
+  flex: 3;
+  min-height: 100%;
 }
 
 .btn-add-project {
-    background-color: var(--columnLeftColor);
-    border: none;
+  background-color: var(--columnLeftColor);
+  border: none;
 }
 
 .btn-add-task {
-    background-color: white;
-    border: none;
+  background-color: white;
+  border: none;
 }
 
 /* ADD PROJECT / ADD TASK BUTTONS */
-.btn-add-project:hover, .btn-add-task:hover {
-    font-weight: bold;
-    text-decoration: none;
-    cursor: pointer;
+.btn-add-project:hover,
+.btn-add-task:hover {
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
 }
 
-
 footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
 }
 
 /* END OF STATIC MAIN STYLING*/
-
-
-
-
-
-
 
 /* MODALS */
 
 /* MODAL BACKGROUNDS */
 .modal {
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sits on top */
-    left: 0; /* left and top determines where modal window starts */
-    top: 0;
-    width: 100%; /* 100% w & h ensures modal window is the whole screen */
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sits on top */
+  left: 0; /* left and top determines where modal window starts */
+  top: 0;
+  width: 100%; /* 100% w & h ensures modal window is the whole screen */
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
 }
 
 /* PROJECT MODAL */
 .modal-project {
-    display: none;
+  display: none;
 }
 
 /* TASK MODAL */
 .modal-task {
-    display: none;
+  display: none;
 }
 
 /* MODAL BOXES  */
 .modal-content {
-    background-color: white;
-    padding: 20px;
-    border: 1px solid black;
-    border-radius: 10px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: flex;
-    flex-direction: column;
+  background-color: white;
+  padding: 20px;
+  border: 1px solid black;
+  border-radius: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
 }
 
 /* MODAL BOX TITLES */
 .modal-title {
-    padding-bottom: 25px;
-    font-size: var(--headingTwo);
-    font-weight: bold;
+  padding-bottom: 25px;
+  font-size: var(--headingTwo);
+  font-weight: bold;
 }
 
 /* FORM CONTENTS */
 form {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 /* MODAL X CLOSE BUTTONS */
 .btn-close {
-    background-color: white;
-    /* Removes button defaults */
-    border: none;
-    outline: none;
-    box-shadow: none;
+  background-color: white;
+  /* Removes button defaults */
+  border: none;
+  outline: none;
+  box-shadow: none;
 
-    color: #aaa;
-    float: right; /* sets X to the right */
-    font-weight: bold;
+  color: #aaa;
+  float: right; /* sets X to the right */
+  font-weight: bold;
 }
 
 /* MODAL X CLOSE BUTTONS HOVER/FOCUS */
-.btn-close:hover, .btn-close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
+.btn-close:hover,
+.btn-close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 /* END OF MODALS */
 
-
-
 /* TASKS */
 .card {
-    border: 1px solid;
+  border: 1px solid;
 }
