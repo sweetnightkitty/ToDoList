@@ -1,5 +1,6 @@
 import { manage } from "./index";
 const tasksContainer = document.querySelector(".container-right");
+let taskId = 1;
 
 //Currently logs task.title but we can make this more detailed for UI
 export function displayTasks(currentProject) {
@@ -17,17 +18,18 @@ export function displayTasks(currentProject) {
     const taskDeleteBtns = document.querySelectorAll(".btn-task-delete");
     taskDeleteBtns.forEach((btn) => {
         btn.addEventListener("click", () => {
-            console.log("delete!");
-            //Logic to find the current task and remove from projects array
+            //delete task from array and display tasks again
+            manage.deleteTask(btn.dataset.index);
+            displayTasks(manage.getCurrentProject());
         })
     })
 
     const checkboxes = document.querySelectorAll(".checkbox");
     checkboxes.forEach((box) => {
         box.addEventListener("click", () => {
-            console.log("check!");
-            //Logic to find the current task and remove from projects array
-            //Logic to push to a completed array
+            //delete task from array and display tasks again
+            manage.deleteTask(box.dataset.index);
+            displayTasks(manage.getCurrentProject());
         })
     })
 };
@@ -38,19 +40,27 @@ function clearTasksContainer() {
 };
 
 function createCard(task) {
+    //gets the index value of that task
+    const currentProject = manage.getCurrentProject();
+    const index = currentProject.tasks.indexOf(task);
+
     //makes card div
     const card = document.createElement("div");
     card.classList.add("card");
 
-    const radio = createRadio("id"); //id needs to be unique
+    const radio = createRadio(`card-${taskId}`); //unique id
 
     const title = createDiv(task.title);
     const description = createDiv(task.description);
     const date = createDiv(task.date);
     const priority = createDiv(task.priority);
     const deleteBtn = document.createElement("button");
-    deleteBtn.classList.add("btn-task-delete"); //need a unique class identifier
+    deleteBtn.classList.add("btn-task-delete"); 
     deleteBtn.textContent = "Delete";
+
+    //Assign the index value of the task as dataset numbers
+    deleteBtn.dataset.index = index;
+    radio.dataset.index = index;
 
     card.appendChild(radio);
     card.appendChild(title);
