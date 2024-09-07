@@ -1,64 +1,65 @@
 import { manage } from "./index";
+
 const tasksContainer = document.querySelector(".container-right");
 let taskId = 1;
 
 //Currently logs task.title but we can make this more detailed for UI
 export function displayTasks(currentProject) {
-    clearTasksContainer();
 
     const array = currentProject.tasks;
     for(let i = 0; i < array.length; i++) {
         const task = array[i];
-        //Uses task info to create a card and append to UI
         const card = createCard(task);
         tasksContainer.appendChild(card);
-
     };
 
+    //Creates event listener for deleteBtns after they're created
     const taskDeleteBtns = document.querySelectorAll(".btn-task-delete");
     taskDeleteBtns.forEach((btn) => {
         btn.addEventListener("click", () => {
-            //delete task from array and display tasks again
             manage.deleteTask(btn.dataset.index);
+            clearTasksContainer();
             displayTasks(manage.getCurrentProject());
         })
     })
 
+    //Creates event listener for radios after they're created
     const checkboxes = document.querySelectorAll(".checkbox");
     checkboxes.forEach((box) => {
         box.addEventListener("click", () => {
-            //delete task from array and display tasks again
             manage.deleteTask(box.dataset.index);
+            clearTasksContainer();
             displayTasks(manage.getCurrentProject());
         })
     })
 };
 
 
-function clearTasksContainer() {
+export function clearTasksContainer() {
     tasksContainer.innerHTML = "";
 };
 
 function createCard(task) {
-    //gets the index value of that task
-    const currentProject = manage.getCurrentProject();
-    const index = currentProject.tasks.indexOf(task);
 
     //makes card div
     const card = document.createElement("div");
     card.classList.add("card");
 
-    const radio = createRadio(`card-${taskId}`); //unique id
-
+    const radio = createRadio();
     const title = createDiv(task.title);
     const description = createDiv(task.description);
     const date = createDiv(task.date);
     const priority = createDiv(task.priority);
+
     const deleteBtn = document.createElement("button");
     deleteBtn.classList.add("btn-task-delete"); 
     deleteBtn.textContent = "Delete";
 
-    //Assign the index value of the task as dataset numbers
+    //gets the index value of that task
+    const currentProject = manage.getCurrentProject();
+    const index = currentProject.tasks.indexOf(task);
+    
+    //When deleteBtn or radio box is checked the index value can target the task to remove
     deleteBtn.dataset.index = index;
     radio.dataset.index = index;
 
@@ -73,14 +74,22 @@ function createCard(task) {
 };
 
 
-function createRadio(id) {
+function createRadio() {
     const radio = document.createElement("input");
     radio.type = "radio";
     radio.name = "delete";
     radio.classList.add("checkbox");
-    radio.id = id;
     radio.checked = false;
+
     return radio;
+};
+
+
+export function displayCurrentTasks(projectName) {
+    manage.switchProjects(projectName);
+    const newCurrentProject = manage.getCurrentProject();
+    clearTasksContainer();
+    displayTasks(newCurrentProject);
 };
 
 function createDiv(textContent) {
@@ -88,9 +97,3 @@ function createDiv(textContent) {
     div.textContent = textContent;
     return div;
 }
-
-export function displayCurrentTasks(projectName) {
-    manage.switchProjects(projectName);
-    const currentProject = manage.getCurrentProject();
-    displayTasks(currentProject);
-};

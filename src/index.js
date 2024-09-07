@@ -5,7 +5,8 @@ import { resetForm } from "./modal-dom";
 import { taskManager } from "./task-manager";
 import { displayProjects } from "./projects-dom";
 import { displayTasks } from "./tasks-dom";
-
+import { clearProjectsContainer } from "./projects-dom";
+import { clearTasksContainer } from "./tasks-dom";
 
 
 
@@ -26,6 +27,8 @@ const closeModalBtns = document.querySelectorAll(".btn-close");
 
 //LOADS DEFAULT PROJECTS on page load
 window.addEventListener("load", () => {
+    clearProjectsContainer();
+    clearTasksContainer();
     displayProjects(manage.getProjects);
     displayTasks(manage.getCurrentProject());
 });
@@ -43,11 +46,20 @@ addTaskBtn.addEventListener("click", () => {
     openModal(modal);
 });
 
-//Submits new project
+
 projectSubmitBtn.addEventListener("click", (e) => {
     e.preventDefault();
-    updateProjects(manage);
+
+    //Creates new project
+    const newProject = manage.createProject();
+    clearProjectsContainer();
     displayProjects(manage.getProjects);
+
+    //Automatically toggles to the new project created
+    manage.switchProjects(newProject.name);
+    clearTasksContainer();
+    displayTasks(manage.getCurrentProject());
+
     closeModal();
     resetForm();
 });
@@ -56,6 +68,7 @@ projectSubmitBtn.addEventListener("click", (e) => {
 taskSubmitBtn.addEventListener("click", (e) => {
     e.preventDefault();
     updateTasks(manage);
+    clearTasksContainer();
     displayTasks(manage.getCurrentProject());
     closeModal();
     resetForm();
@@ -77,6 +90,3 @@ function updateTasks() {
     manage.addTaskToProject(newTask, currentProject);
 };
 
-function updateProjects() {
-    manage.createProject();
-};

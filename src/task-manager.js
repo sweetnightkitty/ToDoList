@@ -33,6 +33,8 @@ export function taskManager() {
         };
     
         projects.push(newProject);
+
+        return newProject;
     };
     
     
