@@ -6,7 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "npx webpack",
-    "view": "npx webpack serve"
+    "serve": "npx webpack serve",
+    "check": "npx prettier . --check",
+    "write": "npx prettier . --write",
+    "lint": "npx eslint"
   },
   "keywords": [],
   "author": "",
