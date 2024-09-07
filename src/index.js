@@ -5,8 +5,8 @@ import { resetForm } from "./modal-dom";
 import { taskManager } from "./task-manager";
 import { displayProjects } from "./projects-dom";
 import { displayTasks } from "./tasks-dom";
-import { updateProjects } from "./projects";
-import { updateTasks } from "./tasks";
+
+
 
 
 //Manages all to do list functionality
@@ -47,6 +47,7 @@ addTaskBtn.addEventListener("click", () => {
 projectSubmitBtn.addEventListener("click", (e) => {
     e.preventDefault();
     updateProjects(manage);
+    displayProjects(manage.getProjects);
     closeModal();
     resetForm();
 });
@@ -55,6 +56,7 @@ projectSubmitBtn.addEventListener("click", (e) => {
 taskSubmitBtn.addEventListener("click", (e) => {
     e.preventDefault();
     updateTasks(manage);
+    displayTasks(manage.getCurrentProject());
     closeModal();
     resetForm();
 
@@ -69,5 +71,12 @@ closeModalBtns.forEach((btn) => {
 });
 
 
+function updateTasks() {
+    const newTask = manage.createTask();
+    const currentProject = manage.getCurrentProject();
+    manage.addTaskToProject(newTask, currentProject);
+};
 
-
+function updateProjects() {
+    manage.createProject();
+};

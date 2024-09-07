@@ -65,11 +65,10 @@ export function taskManager() {
         currentProject.tasks.push(newTask);
     };
 
-    //takes in the task and then removes it from projects
+    //takes in the index from currentProjects.tasks[index]
     const deleteTask = (index) => {
         const currentProject = getCurrentProject();
         const projectIndex = projects.indexOf(currentProject);
-        const task = projects[projectIndex].tasks[index];
 
         projects[projectIndex].tasks.splice(index, 1);
 
