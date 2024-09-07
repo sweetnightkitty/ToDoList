@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To Do</title>
+  <script defer src="main.js"></script></head>
+  <body>
+    <div class="content">
+      <div class="col col-left">
+        <button class="btn btn-add-project">Add Project</button>
+        <div class="container container-left"></div>
+      </div>
+      <div class="col col-right">
+        <button class="btn btn-add-task">Add Task</button>
+        <div class="container container-right"></div>
+      </div>
+    </div>
+
+    <div class="modal modal-project">
+      <div class="modal-content modal-content-project">
+        <span class="close-project"
+          ><button class="btn-close btn-close-project">&times;</button></span
+        >
+        <div class="modal-title-project">Create a New Project</div>
+        <form action="#" class="form form-project" method="post">
+          <label for="project-name">Project Name:</label>
+          <input type="text" id="project-name" name="project-name" required />
+
+          <button class="btn-submit-modal btn-submit-modal-project">
+            Submit
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <div class="modal modal-task">
+      <div class="modal-content modal-content-task">
+        <span class="close-task"
+          ><button class="btn-close btn-close-task">&times;</button></span
+        >
+        <div class="modal-title-task">Create a New Task</div>
+        <form action="#" class="form form-task" method="post">
+          <label for="task-name">Task Name:</label>
+          <input type="text" id="task-name" name="task-name" required />
+
+          <label for="task-descript">Description:</label>
+          <textarea id="task-descript" name="task-descript" required></textarea>
+
+          <label for="task-date">Due:</label>
+          <input type="date" id="task-date" name="task-date" required />
+
+          <label for="task-priority">Priority:</label>
+
+          <input type="radio" id="low" name="task-priority" />
+          <label for="low">Low</label>
+
+          <input type="radio" id="med" name="task-priority" />
+          <label for="med">Medium</label>
+
+          <input type="radio" id="high" name="task-priority" />
+          <label for="high">high</label>
+
+          <button class="btn-submit-modal btn-submit-modal-task">Submit</button>
+        </form>
+      </div>
+    </div>
+
+    <footer>
+      <span>&#169; 2024 Sara Toth. All rights reserved.</span>
+    </footer>
+  </body>
+</html>
