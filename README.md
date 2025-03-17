@@ -70,6 +70,6 @@ and then the program will load at http://localhost:8080/
 
 ## Known problems or tasks to complete
 
-[x] Updating CSS for better UX
-[x]Add Additional button that sorts projects by date "today", "Scheduled"
-[x]Optional feature : radio button check pushes the task to a seperate array - completed tasks -> With an option to view completed tasks, and to uncheck the radio and send it back to it's project.
+- [x] Updating CSS for better UX
+- [x] Add Additional button that sorts projects by date "today", "Scheduled"
+- [x] Optional feature : radio button check pushes the task to a seperate array - completed tasks -> With an option to view completed tasks, and to uncheck the radio and send it back to it's project.
